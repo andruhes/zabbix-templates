@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-06-12T12:11:50Z</date>
+    <date>2015-06-15T16:42:25Z</date>
     <groups>
         <group>
             <name>Templates Windows</name>
@@ -744,7 +744,7 @@ perf_counter[\Processor(_Total)\% Processor Time]</description>
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>{#FSNAME}:^C|^D|^E|^F|^G|^H|^I</filter>
+                    <filter>{#FSNAME}:^C|^D|^E|^F</filter>
                     <lifetime>30</lifetime>
                     <description/>
                     <item_prototypes>
@@ -880,7 +880,7 @@ perf_counter[\Processor(_Total)\% Processor Time]</description>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template Windows Basis:vfs.fs.size[{#FSNAME},free].last()}&lt;1111822336</expression>
+                            <expression>{Template Windows Basis:vfs.fs.size[{#FSNAME},free].avg(900)}&lt;1111822336</expression>
                             <name>{HOSTNAME} : Less than 1 GB of disk {#FSNAME}</name>
                             <url/>
                             <status>0</status>
@@ -889,7 +889,7 @@ perf_counter[\Processor(_Total)\% Processor Time]</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Windows Basis:vfs.fs.size[{#FSNAME},free].last()}&lt;2223644672 &amp; {Template Windows Basis:vfs.fs.size[{#FSNAME},free].last()}&gt;1111822336</expression>
+                            <expression>{Template Windows Basis:vfs.fs.size[{#FSNAME},free].avg(900)}&lt;2223644672 &amp; {Template Windows Basis:vfs.fs.size[{#FSNAME},free].avg(900)}&gt;1111822336</expression>
                             <name>{HOSTNAME} : Less than 2 GB of disk {#FSNAME}</name>
                             <url/>
                             <status>0</status>
@@ -898,7 +898,7 @@ perf_counter[\Processor(_Total)\% Processor Time]</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Windows Basis:vfs.fs.size[{#FSNAME},free].last()}&gt;2223644672 &amp; {Template Windows Basis:vfs.fs.size[{#FSNAME},free].avg(300)}&lt;5559111680</expression>
+                            <expression>{Template Windows Basis:vfs.fs.size[{#FSNAME},free].avg(900)}&gt;2223644672 &amp; {Template Windows Basis:vfs.fs.size[{#FSNAME},free].avg(900)}&lt;5559111680</expression>
                             <name>{HOSTNAME} : Less than 5 GB of disk {#FSNAME}</name>
                             <url/>
                             <status>0</status>
